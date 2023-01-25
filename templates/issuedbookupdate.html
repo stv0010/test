@@ -1,0 +1,40 @@
+{% extends 'adminnav.html' %}
+{% block content %}
+        <form method="post" action="">
+            {% csrf_token %}
+            <table align="center">
+                <tr>
+                    <td>student name:</td>
+                    <td><input type="text" name="ddlstud" value="{{ lis.studname }}">
+<!--                        <select name="ddlstud">-->
+
+<!--                            <option>{{ lis.sname }}</option>-->
+
+<!--                        </select>-->
+                    </td>
+                </tr>
+                <tr>
+                    <td>Book name:</td>
+                    <td>
+                        <select name="ddlbook">
+                            <option selected>{{ lis.studbook }}</option>
+                            {% for i in lis2 %}
+                            <option>{{ i.bname }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>start date:</td>
+                    <td><input type="date" name="tstart" value="{{ lis.startdate }}"></td>
+                </tr>
+                <tr>
+                    <td>end date:</td>
+                    <td><input type="date" name="tend" value="{{ lis.enddate }}"></td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="middle"><input type="submit" value="assign" class="sub"></td>
+                </tr>
+            </table>
+        </form>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'adminnav.html' %}
+{% block content %}
+<br>
+<br>
+<h3 align="center" style="color:lightgreen">{{data}}</h3>
+<table align="center">
+    <tr>
+        <th>id</th>
+        <th>bookname</th>
+        <th>authorname</th>
+        <th>courseid</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for i in lis %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.bname}}</td>
+            <td>{{i.authname}}</td>
+            <td>{{i.courseid}}</td>
+            <td><a href="{% url 'updatebook' i.id %}">update</a></td>
+            <td><a href="{% url 'deletebook' i.id %}">delete</a></td>
+        </tr>
+    {% endfor %}
+</table>
+<style>
+    body{
+            background-color:#90a67c;
+            }
+    td{
+        background-color:#bfbfbf;
+        padding:3px;}
+    th{
+        background-color:#b5554e;
+        padding:3px;}
+</style>
+{% endblock %}

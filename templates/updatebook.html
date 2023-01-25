@@ -1,0 +1,54 @@
+{% extends 'adminnav.html' %}
+{% block content %}
+<br>
+<br>
+<form action="" method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>book name:</td>
+            <td><input type="text" name="tbname" value="{{ lis.bname }}"></td>
+        </tr>
+        <tr>
+            <td>author name:</td>
+            <td><input type="text" name="taname" value="{{ lis.authname }}"></td>
+        </tr>
+        <tr>
+            <td>course:</td>
+            <td><select name="ddlcourse" >
+                    <option selected>{{ lis.courseid }}</option>
+                    {% for i in lis2 %}
+                            <option>{{ i.cname }}</option>
+                    {% endfor %}
+                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="middle"><input type="submit" class="sub"></td>
+        </tr>
+    </table>
+</form>
+<style>
+    body{
+            background-color:#90a67c;
+            }
+    input{
+            background-color:#bfbfbf;
+            border-radius:8px;
+            border:2px solid #252525;
+            }
+    td{padding:3px;}
+    select{
+
+            background-color:#bfbfbf;
+            border-radius:8px;
+            border:2px solid #252525;
+            width:99%;
+            }
+    .sub{
+            background-color:#252525;
+            color:#bfbfbf;
+            width:35%;
+            }
+</style>
+{% endblock %}

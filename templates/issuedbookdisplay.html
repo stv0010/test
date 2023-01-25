@@ -1,0 +1,36 @@
+{% extends 'adminnav.html' %}
+{% block content %}
+<br>
+<br>
+<table align="center">
+    <tr>
+        <th>student name</th>
+        <th>book name</th>
+        <th>start date</th>
+        <th>end date</th>
+        <th></th>
+        <th></th>
+    </tr>
+    {% for i in lis %}
+        <tr>
+            <td>{{ i.studname }}</td>
+            <td>{{ i.studbook }}</td>
+            <td>{{ i.startdate }}</td>
+            <td>{{ i.enddate }}</td>
+            <td><a href="{% url 'issdbkupdate' i.id %}">update</a></td>
+            <td><a href="{% url 'issdbkdelete' i.id %}">delete</a></td>
+        </tr>
+    {% endfor %}
+</table>
+<style>
+    body{
+            background-color:#90a67c;
+            }
+    td{
+        background-color:#bfbfbf;
+        padding:5px;}
+    th{
+        background-color:#b5554e;
+        padding:3px;}
+</style>
+{% endblock %}
